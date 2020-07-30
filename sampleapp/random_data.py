@@ -2,17 +2,15 @@ import os
 import django
 from faker import Faker
 import random
+from app1.models import Topic, Webpage, AccessRecord
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'sampleapp.settings')
 
 django.setup()
 
-from app1.models import Topic,Webpage,AccessRecord
+fakegen = Faker()
 
-fakegen =Faker()
-
-
-topics = ['Search','Social','Marketplace','News','Games']
+topics = ['Search', 'Social', 'Marketplace', 'News', 'Games']
 
 
 def add_topic():
@@ -22,7 +20,6 @@ def add_topic():
 
 
 def populate(N):
-
     for i in range(N):
         topic = add_topic()
 
@@ -30,10 +27,11 @@ def populate(N):
         fake_name = fakegen.company()
         fake_date = fakegen.date()
 
-
-        webpage = Webpage.objects.get_or_create(topic=topic,name=fake_name,url=fake_url)[0]
-        accessrecord=AccessRecord.objects.get_or_create(name=webpage,date=fake_date)[0]
-
+        webpage = Webpage.objects.get_or_create(topic=topic,
+                                                name=fake_name,
+                                                url=fake_url)[0]
+        accessrecord = AccessRecord.objects.get_or_create(name=webpage,
+                                                          date=fake_date)[0]
 
 
 if __name__ == '__main__':
