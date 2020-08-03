@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static "resources/css/topic.css" %}">
+</head>
+<body>
+    <h1>New data</h1>
+    {% if accessrecords %}
+    <div class="accessrecords">
+        <table class="accesstable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Access Date</th>
+                </tr>
+            </thead>
+            <tbody>
+              {% for acc in accessrecords %}
+                <tr>
+                    <td>{{ acc.name }}</td>
+                    <td>{{ acc.date }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+</body>
+</html>

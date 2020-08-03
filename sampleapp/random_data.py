@@ -2,11 +2,13 @@ import os
 import django
 from faker import Faker
 import random
-from app1.models import Topic, Webpage, AccessRecord
+
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'sampleapp.settings')
 
 django.setup()
+
+from app1.models import Topic, Webpage, AccessRecord
 
 fakegen = Faker()
 
