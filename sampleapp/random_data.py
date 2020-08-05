@@ -3,7 +3,6 @@ import django
 from faker import Faker
 import random
 
-
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'sampleapp.settings')
 
 django.setup()
@@ -34,8 +33,6 @@ def populate(N):
                                                 url=fake_url)[0]
         accessrecord = AccessRecord.objects.get_or_create(name=webpage,
                                                           date=fake_date)[0]
-
-
 if __name__ == '__main__':
     print("Populating script")
     populate(20)

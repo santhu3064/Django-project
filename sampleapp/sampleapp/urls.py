@@ -19,11 +19,15 @@ from django.conf.urls import include
 
 from app1 import views
 
+from formsbasic import views as from_views
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$',views.index),
+    url(r'^$', views.index),
     url(r'^app2/', include('app2.urls')),
     url(r'^app1/', include('app1.urls')),
     url(r'^users/', include('users.urls')),
+    url(r'formindex/', from_views.index, name='formindex'),
+    url(r'sampleform/', from_views.signupform, name='formform')
 ]
