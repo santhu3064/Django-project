@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app1',
     'users',
-    'formsbasic'
+    'signup'
 ]
 
 MIDDLEWARE = [

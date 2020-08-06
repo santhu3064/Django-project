@@ -1,12 +1,12 @@
 from django.shortcuts import render
 
-from formsbasic import forms
+from signup import forms
 
 
 # Create your views here.
 
 def index(request):
-    return render(request, 'formsbasic/index.html')
+    return render(request, 'signup/index.html')
 
 
 def signupform(request):
@@ -17,4 +17,4 @@ def signupform(request):
         if form.is_valid():
             print(
                 "{},{},{}".format(form.cleaned_data['name'], form.cleaned_data['email'], form.cleaned_data['comments']))
-    return render(request, 'formsbasic/basicform.html', {'form': form})
+    return render(request, 'signup/signup.html', {'form': form})

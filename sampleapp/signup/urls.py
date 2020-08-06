@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from formsbasic import views
+from signup import views
 
 urlpatterns = [
     url(r'^$',views.index,name='formindex'),
