@@ -15,6 +15,7 @@ def signupform(request):
         form = forms.Signup(request.POST)
 
         if form.is_valid():
-            print(
-                "{},{},{}".format(form.cleaned_data['name'], form.cleaned_data['email'], form.cleaned_data['comments']))
+            print("{},{},{}".format(form.cleaned_data['name'],
+                                    form.cleaned_data['email'],
+                                    form.cleaned_data['comments']))
     return render(request, 'signup/signup.html', {'form': form})

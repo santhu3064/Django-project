@@ -11,12 +11,18 @@ def NameRegValidator(value):
 
 
 class Signup(forms.Form):
-    name = forms.CharField(max_length=100, required=True)
-    # name = forms.CharField(max_length=100, required=True, validators=[NameRegValidator])
-    email = forms.EmailField(max_length=255, required=True)
-    verify_email = forms.EmailField(max_length=255, required=True, label="Confirm Email Address")
+    name = forms.CharField(max_length=100,
+                           required=True)
+    # name = forms.CharField(max_length=100, required=True,
+    #                        validators=[NameRegValidator])
+    email = forms.EmailField(max_length=255,
+                             required=True)
+    verify_email = forms.EmailField(max_length=255,
+                                    required=True,
+                                    label="Confirm Email Address")
     comments = forms.CharField(widget=forms.Textarea)
-    bot = forms.CharField(required=False, widget=forms.HiddenInput,
+    bot = forms.CharField(required=False,
+                          widget=forms.HiddenInput,
                           validators=[MaxLengthValidator(0, "Caught the bot")])
 
     def clean(self):
