@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app1',
     'users',
-    'signup'
+    'signup',
+    'relativetemplatingapp'
 ]
 
 MIDDLEWARE = [

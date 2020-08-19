@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+{% extends 'relativetemplatingapp/base.html' %}
+{% load custom %}
+{% block content %}
+<h2>Inherited lock for index</h2>
+ <h1>this {{ test.name | parents }}</h1>
+ <h1>is {{ test.age }}</h1>
+{% endblock %}

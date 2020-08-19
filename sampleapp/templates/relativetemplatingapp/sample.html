@@ -1,10 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'relativetemplatingapp/base.html' %}
+<h1>outside block not inhertied</h1>
+{% block content %}
+<h1>Inherited lock for sample</h1>
+{% endblock %}

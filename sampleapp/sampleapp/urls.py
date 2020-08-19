@@ -13,12 +13,10 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+from app1 import views
+from django.conf.urls import include
 from django.conf.urls import url
 from django.contrib import admin
-from django.conf.urls import include
-
-from app1 import views
-
 from signup import views as from_views
 from users import views as users_views
 
@@ -30,5 +28,7 @@ urlpatterns = [
     url(r'^users/', include('users.urls')),
     url(r'^index/', from_views.index, name='signupindex'),
     url(r'^signup/', from_views.signupform, name='signup'),
-    url(r'^users/signup/', users_views.users, name='usersignup')
+    url(r'^users/signup/', users_views.users, name='usersignup'),
+    # url(r'^template/',template_views.index, name='template_index'),
+    url(r'^templates/',include('relativetemplatingapp.urls')),
 ]
