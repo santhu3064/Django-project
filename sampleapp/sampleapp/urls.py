@@ -30,5 +30,6 @@ urlpatterns = [
     url(r'^signup/', from_views.signupform, name='signup'),
     url(r'^users/signup/', users_views.users, name='usersignup'),
     # url(r'^template/',template_views.index, name='template_index'),
-    url(r'^templates/',include('relativetemplatingapp.urls')),
+    url(r'^templates/', include('relativetemplatingapp.urls')),
+    url(r'^adminusers/', include('adminusers.urls')),
 ]

@@ -18,7 +18,7 @@ def users(request):
 
         if form.is_valid():
             form.save(commit=True)
-            return index(request    )
+            return index(request)
         else:
             return 'Error Validating form'
     return render(request, 'users/signup.html', context={'form': form})

@@ -19,6 +19,8 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 STATICS_DIR = os.path.join(BASE_DIR, 'static')
 
+MEDIA_DIR = os.path.join(BASE_DIR, 'media')
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
@@ -42,7 +44,8 @@ INSTALLED_APPS = [
     'app1',
     'users',
     'signup',
-    'relativetemplatingapp'
+    'relativetemplatingapp',
+    'adminusers',
 ]
 
 MIDDLEWARE = [
@@ -105,6 +108,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 9,
+        }
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
@@ -113,6 +119,15 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+    'django.contrib.auth.hashers.BCryptPasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+]
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
@@ -135,3 +150,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     STATICS_DIR,
 ]
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = MEDIA_DIR
