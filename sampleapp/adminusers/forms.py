@@ -7,7 +7,7 @@ from adminusers.models import UserProfileInfo
 class Userform(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
 
-    class Model():
+    class Meta():
         model = User
         fields = ['username','email','password']
 

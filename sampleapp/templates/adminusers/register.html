@@ -2,18 +2,22 @@
 {% extends 'adminusers/base.html' %}
 
 {% block base_block %}
-{% if registered %}
-<h2> Thank you for registering </h2>
-{% else %}
-<h2> Register here</h2>
-<form method="post" enctype="multipart/form-data">
 
-    {% csrf_token %}
-    {{ userform.as_p }}
-    {{ profileform.as_p }}
-    <input type="submit" name="" value="Register">
-</form>
+<div class="jumbotron">
+    {% if registered %}
+    <h2> Thank you for registering </h2>
+    {% else %}
+    <h2> Register here</h2>
+    <form method="post" enctype="multipart/form-data">
 
-{% endif %}
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        {{ profile_form.as_p }}
+        <input type="submit" name="" value="Register">
+    </form>
+
+    {% endif %}
+
+</div>
 
 {% endblock %}
