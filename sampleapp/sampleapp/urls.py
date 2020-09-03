@@ -19,10 +19,11 @@ from django.conf.urls import url
 from django.contrib import admin
 from signup import views as from_views
 from users import views as users_views
+from adminusers import views as adminusers_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.index),
+    url(r'^$', views.index, name ='index'),
     url(r'^app2/', include('app2.urls')),
     url(r'^app1/', include('app1.urls')),
     url(r'^users/', include('users.urls')),
@@ -32,4 +33,5 @@ urlpatterns = [
     # url(r'^template/',template_views.index, name='template_index'),
     url(r'^templates/', include('relativetemplatingapp.urls')),
     url(r'^adminusers/', include('adminusers.urls')),
+    url(r'^logout/', adminusers_views.user_logout, name='logout'),
 ]

@@ -1,6 +1,12 @@
 from django.shortcuts import render
 from adminusers import forms
 
+from django.contrib.auth import login, logout, authenticate
+
+from django.contrib.auth.decorators import login_required
+from django.urls import reverse
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden
+
 
 # Create your views here.
 
@@ -41,3 +47,29 @@ def register(request):
                   context={'user_form': user_form,
                            'profile_form': profile_form,
                            'registered': registered})
+
+
+def user_login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = authenticate(request, username=username, password=password)
+
+        if user:
+            if user.is_active:
+                login(request, user)
+                return HttpResponseRedirect(reverse('adminusers:index'))
+            else:
+                return HttpResponseForbidden('User Not active.Contact adminstrator')
+        else:
+            print(username,password)
+            return HttpResponse('User not found', status=404)
+    else:
+        return render(request, 'adminusers/login.html', {})
+
+
+@login_required
+def user_logout(request):
+    logout(request)
+    return render(request, 'adminusers/logout.html', {})
