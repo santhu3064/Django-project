@@ -19,7 +19,7 @@ pycodestyle==2.6.0
 pycparser==2.20
 pydocstyle==5.0.2
 pyflakes==2.2.0
-PyJWT==1.7.1
+PyJWT==2.4.0
 pylama==7.7.1
 PyMySQL==0.10.0
 python-dateutil==2.8.1
